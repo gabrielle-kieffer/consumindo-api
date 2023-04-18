@@ -1,6 +1,7 @@
 import { ApiKey } from "../../config/key"
-import { Container, MovieList, Movie } from "./styles"
+import style from "./styles-home.css"
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 function Home(){
 
@@ -15,19 +16,21 @@ const image = 'https://image.tmdb.org/t/p/w500'
 
 
    return(
-    <Container>
+    <div className={style.container}>
         <h1>Movies</h1>
-        <MovieList>
+        <div>
+        <div className={style.movielist}>
             {movies.map(movie => {
                   return (
-                  <Movie key={movie.id}>
-                    <a href='https://google.com.br'/> <img src={`${image} ${movie.poster_path}`} alt={movie.title}/>
-                    <span>{movie.title}</span>
-                  </Movie>)
+                  <div className={style.movie} key={movie.id}>
+                    <Link to={`/details/${movie.id}`}> <img src={`${image}${movie.poster_path}`} alt={movie.title}/></Link>
+                    <h5 className={style.title}>{movie.title}</h5>
+                  </div>)
             }
               )}
-        </MovieList>
-    </Container>
+        </div>
+        </div>
+    </div>
    ) 
 }
 
