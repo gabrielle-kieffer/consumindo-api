@@ -42,9 +42,9 @@ button:hover{
   background-color: #20B2AA;
 }
 
-button:active{
-  background-color:#008080;
-  }
+// button:active{
+//   background-color:#008080;
+//   }
   
 
 span{
