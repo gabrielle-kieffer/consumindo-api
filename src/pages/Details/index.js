@@ -2,8 +2,9 @@ import { Link, useParams } from "react-router-dom"
 import { useState} from "react"
 import { useEffect } from "react"
 import { ApiKey } from "../../config/key"
+import { Container } from "./styles";
 
-import style from './styles.css'
+
 
 function Details(){
 const {id} = useParams()     
@@ -27,18 +28,17 @@ useEffect(() =>{
 
     return (
 
-            <div className={style.principal}>
-              <div className={style.img}>
-               <img  src={movie.image} alt={movie.sinopse} />
-              </div>
-               <div className={style.details}>
-                <h2>{movie.title}</h2>
-                <h3 >Overview: </h3>
-                <span> {movie.sinopse}</span>
-                <p className={style.release}>Realese date: {movie.releaseDate}<br /></p>
-                <Link to='/'> <button>Go Back</button></Link>
-               </div>
-            </div>
+      <Container>
+      <div className="movie">
+        <img src={movie.image} alt={movie.sinopse} />
+        <div className="details">
+          <h1>{movie.title}</h1>
+          <span>Sinopse:{movie.sinopse}</span>
+        <h2 className="release-date">Release date: {movie.releaseDate}</h2>
+        <Link to='/'> <button>Go Back</button></Link>
+        </div>
+      </div>
+    </Container>
   
     )
 }
